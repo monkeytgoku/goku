@@ -1,0 +1,41 @@
+.user-form-wrapper {
+  .user-form {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+    background: #fff;
+    padding: 1.5rem 1rem;
+
+    &__more-info {
+      box-shadow: none;
+
+      .mat-expansion-panel-header {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+      .mat-expansion-panel-header.mat-expanded {
+        height: 2.5rem;
+      }
+      .mat-expansion-panel-header-title {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.45);
+      }
+
+      .mat-expansion-panel-header-description {
+        justify-content: space-between;
+        align-items: center;
+      }
+      .mat-expansion-panel-body {
+        padding-left: 0;
+        padding-right: 0;
+
+        .mat-form-field {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+

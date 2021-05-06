@@ -1,0 +1,11 @@
+.user-list-wrapper {
+  .header-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      flex-grow: 0;
+    }
+  }
+}

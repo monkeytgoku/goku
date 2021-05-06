@@ -1,0 +1,168 @@
+<div class="user-form-wrapper">
+  <form [formGroup]="userFg" class="user-form">
+    <mat-form-field [floatLabel]="'always'">
+      <mat-label>Username</mat-label>
+      <input
+        #username
+        matInput
+        formControlName="username"
+        maxlength="12"
+        autocomplete="off"
+        required
+      />
+      <button mat-button *ngIf="username.value" matSuffix mat-icon-button aria-label="Clear" (click)="username.value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-hint [align]="'end'">{{ username.value?.length || 0 }}/12</mat-hint>
+      <mat-error *ngIf="userFg.controls.username.invalid"
+        >Username is required!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="'always'">
+      <mat-label>Password</mat-label>
+      <input
+        #password
+        matInput
+        formControlName="password"
+        autocomplete="off"
+        [type]="hidePassword ? 'password' : 'text'"
+        required
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hidePassword = !hidePassword"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hidePassword"
+      >
+        <mat-icon>{{
+          hidePassword ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+      <mat-error *ngIf="userFg.controls.password.invalid"
+        >Password is required!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="'always'">
+      <mat-label>Name</mat-label>
+      <input
+        #name
+        matInput
+        formControlName="name"
+        maxlength="50"
+        autocomplete="off"
+        required
+      />
+      <button mat-button *ngIf="name.value" matSuffix mat-icon-button aria-label="Clear" (click)="name.value='';">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error *ngIf="userFg.controls.name.invalid"
+        >Name is required!</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="'always'">
+      <mat-label>Email</mat-label>
+      <input
+        #email
+        matInput
+        placeholder="pat@example.com"
+        formControlName="email"
+        autocomplete="off"
+        required
+      />
+      <button mat-button *ngIf="email.value" matSuffix mat-icon-button aria-label="Clear" (click)="email.value=''">
+        <mat-icon>close</mat-icon>
+      </button>
+      <mat-error *ngIf="userFg.controls.email.invalid"
+        >Not a valid email</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field [floatLabel]="'always'">
+      <mat-label>Roles</mat-label>
+      <mat-select formControlName="roles" multiple>
+        <mat-option *ngFor="let role of roles" [value]="role">
+          {{ role }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="g-form-field">
+      <label class="g-form-field__label">Active</label>
+      <mat-radio-group formControlName="isActive">
+        <mat-radio-button [value]="true" selected color="primary">Yes</mat-radio-button>
+        <mat-radio-button [value]="false" color="primary">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-expansion-panel class="user-form__more-info">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Additional information</mat-panel-title>
+        <mat-panel-description>
+          <!-- <mat-icon>info</mat-icon> -->
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="g-form-field">
+        <label class="g-form-field__label">Gender</label>
+        <mat-radio-group formControlName="gender">
+          <mat-radio-button value="male" color="primary">Male</mat-radio-button>
+          <mat-radio-button value="female" color="primary">Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <mat-form-field [floatLabel]="'always'">
+        <mat-label>Phone</mat-label>
+        <input
+          #phone
+          matInput
+          formControlName="phone"
+          autocomplete="off"
+        />
+        <button mat-button *ngIf="phone.value" matSuffix mat-icon-button aria-label="Clear" (click)="phone.value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field [floatLabel]="'always'">
+        <mat-label>Address</mat-label>
+        <input
+          #address
+          matInput
+          formControlName="address"
+          autocomplete="off"
+        />
+        <button mat-button *ngIf="address.value" matSuffix mat-icon-button aria-label="Clear" (click)="address.value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field [floatLabel]="'always'">
+        <mat-label>Birthday</mat-label>
+        <input
+          #birthday
+          matInput
+          formControlName="birthday"
+          [matDatepicker]="datepicker"
+        />
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button type="button" mat-button matDatepickerCancel>Cancel</button>
+            <button type="button" mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+
+      <div class="g-form-field">
+        <label class="g-form-field__label">Avatar</label>
+        <app-upload-file></app-upload-file>
+      </div>
+    </mat-expansion-panel>
+
+    <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+  </form>
+</div>

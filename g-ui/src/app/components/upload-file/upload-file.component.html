@@ -1,0 +1,26 @@
+<div class="upload-file-wrapper">
+  <mat-card>
+    <mat-card-content>
+      <ul *ngIf="files.length > 0">
+        <li *ngFor="let file of files">
+          <mat-progress-bar [value]="file.progress"></mat-progress-bar>
+          <span id="file-label"></span>
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="button" mat-raised-button (click)="onClick()">
+        <mat-icon>file_upload</mat-icon> Upload
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <input
+    type="file"
+    #fileInput
+    id="fileUpload"
+    name="fileUpload"
+    multiple="multiple"
+    accept="image/*"
+    style="display: none;"
+  />
+</div>

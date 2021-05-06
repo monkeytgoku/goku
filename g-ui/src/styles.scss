@@ -1,0 +1,15 @@
+@import "assets/styles/abstracts/functions";
+@import "assets/styles/abstracts/mixins";
+@import "assets/styles/abstracts/variables";
+
+@import "assets/styles/base/animations";
+@import "assets/styles/base/base";
+@import "assets/styles/base/typography";
+
+@import "assets/styles/components/g-table";
+@import "assets/styles/components/g-form";
+@import "assets/styles/components/g-popup";
+
+.mat-radio-button .mat-radio-ripple {
+  display: none;
+}

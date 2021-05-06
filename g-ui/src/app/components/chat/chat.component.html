@@ -1,0 +1,50 @@
+<div class="chat-wrapper">
+  <div class="messages">
+    <ng-container *ngFor="let u of userWithMessages">
+      <div class="msg" [class.isme]="u.isMe">
+        <div class="msg__avatar">
+          {{ u.username[0] }}
+        </div>
+        <div class="msg__content" [class.msg__content--isMe]="u.isMe">
+          <ng-container *ngIf="u.message.indexOf('mat-icon') === -1">
+            {{ u.message }}
+          </ng-container>
+          <ng-container *ngIf="u.message.indexOf('mat-icon') !== -1">
+            <mat-icon>thumb_up_alt</mat-icon>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="send-msg">
+    <mat-form-field class="input-msg">
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="newMessage"
+        (keyup)="$event.keyCode == 13 && sendMessage()"
+      />
+      <button
+        *ngIf="newMessage"
+        mat-button
+        matSuffix
+        mat-icon-button
+        aria-label="send"
+        (click)="sendMessage()"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+      <button
+        *ngIf="!newMessage"
+        mat-button
+        matSuffix
+        mat-icon-button
+        aria-label="like"
+        (click)="like()"
+      >
+        <mat-icon>thumb_up_alt</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</div>

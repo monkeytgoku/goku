@@ -1,0 +1,51 @@
+@import "../../../assets/styles/abstracts/mixins";
+
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 110;
+  background-color: #3f51b5;
+  display: flex;
+  align-items: center;
+  height: 6rem;
+  padding: 1rem 1.5rem;
+  @include boxShadow;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, blue, red);
+    font-weight: 600;
+    font-size: 1.6rem;
+
+    @include boxShadow;
+  }
+
+  .logo, .mat-icon, .btn-label {
+    color: #fff;
+  }
+
+  .btn-label {
+    margin-left: .5rem;
+  }
+}
+
+.desktop-view {
+  display: flex;
+}
+.mobile-view {
+  display: none;
+}
+
+@include respond(phone) {
+  .desktop-view {
+    display: none;
+  }
+  .mobile-view {
+    display: flex;
+  }
+}
