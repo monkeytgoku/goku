@@ -21,6 +21,7 @@
     background-image: linear-gradient(to bottom right, blue, red);
     font-weight: 600;
     font-size: 1.6rem;
+    cursor: pointer;
 
     @include boxShadow;
   }
