@@ -4,25 +4,9 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  name: {
+  username: {
     type: String,
     required: [true, 'Please tell us your name!'],
-  },
-  email: {
-    type: String,
-    required: [true, 'Please provide your email'],
-    unique: true,
-    lowercase: true,
-    validate: [validator.isEmail, 'Please provide a valid email'],
-  },
-  photo: {
-    type: String,
-    default: 'default.jpg',
-  },
-  role: {
-    type: String,
-    enum: ['user', 'guide', 'lead-guide', 'admin'],
-    default: 'user',
   },
   password: {
     type: String,
@@ -40,6 +24,39 @@ const userSchema = new mongoose.Schema({
       },
       message: 'Passwords are not the same!',
     },
+  },
+  name: {
+    type: String,
+    required: [true, 'Please tell us your name!'],
+  },
+  email: {
+    type: String,
+    required: [true, 'Please provide your email'],
+    unique: true,
+    lowercase: true,
+    validate: [validator.isEmail, 'Please provide a valid email'],
+  },
+  avatar: {
+    type: String,
+    default: 'default.jpg',
+  },
+  gender: {
+    type: String,
+    default: 'male',
+  },
+  birthday: {
+    type: String,
+  },
+  phone: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  role: {
+    type: String,
+    enum: ['user', 'guide', 'lead-guide', 'admin'],
+    default: 'user',
   },
   passwordChangedAt: Date,
   passwordResetToken: String,

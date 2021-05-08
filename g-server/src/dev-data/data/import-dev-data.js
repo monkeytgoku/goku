@@ -1,14 +1,16 @@
 const fs = require('fs');
 // eslint-disable-next-line import/newline-after-import
 const dotenv = require('dotenv');
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: '../../../configs.env' });
 // eslint-disable-next-line no-unused-vars
 const mongooseConn = require('../../configs/mongoose.config');
 
 const User = require('../../models/userModel');
 
 // READ JSON FILE
-const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
+const users = JSON.parse(
+  fs.readFileSync(`${__dirname}/users.mock.json`, 'utf-8')
+);
 
 // IMPORT DATA INTO DB
 const importData = async () => {
