@@ -2,14 +2,16 @@
   <div class="logo">
     G
   </div>
-  <button mat-button (click)="goTo('')">
-    <mat-icon>{{ 'Home' | translate}}</mat-icon>
-    <span class="btn-label">Home</span>
-  </button>
-  <button mat-button (click)="goTo('user')">
-    <mat-icon>group</mat-icon>
-    <span class="btn-label">User</span>
-  </button>
+  <nav>
+    <button mat-button (click)="goTo('')">
+      <mat-icon>home</mat-icon>
+      <span class="btn-label">{{ 'HEADER.Home' | translate }}</span>
+    </button>
+    <button mat-button (click)="goTo('user')">
+      <mat-icon>group</mat-icon>
+      <span class="btn-label">{{ 'HEADER.User' | translate }}</span>
+    </button>
+  </nav>
 </div>
 
 <div class="mobile-view header-wrapper">
@@ -19,11 +21,11 @@
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="goTo('')">
       <mat-icon>home</mat-icon>
-      <span>Home</span>
+      <span>{{ 'HEADER.Home' | translate }}</span>
     </button>
     <button mat-menu-item (click)="goTo('user')">
       <mat-icon>group</mat-icon>
-      <span>User</span>
+      <span>{{ 'HEADER.User' | translate }}</span>
     </button>
   </mat-menu>
 </div>

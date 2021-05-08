@@ -1,3 +1,41 @@
 {
-  "Home": "Home"
+  "HEADER": {
+    "Home": "Home",
+    "User": "User"
+  },
+  "FOOTER": {
+    "Copy_Right": "© 2021 Monkey T. Goku. All rights reserved."
+  },
+  "UPLOAD_FILE": {
+    "Upload": "Upload"
+  },
+  "USER": {
+    "Add": "Add",
+    "Search": "Search",
+    "Username": "Username",
+    "Password": "Password",
+    "Name": "Name",
+    "Email": "Email",
+    "Roles": "Roles",
+    "Active": "Active",
+    "Yes": "Yes",
+    "No": "No",
+    "Gender": "Gender",
+    "Male": "Male",
+    "Female": "Female",
+    "Phone": "Phone",
+    "Address": "Address",
+    "Birthday": "Birthday",
+    "Cancel": "Cancel",
+    "Apply": "Apply",
+    "Avatar": "Avatar",
+    "Submit": "Submit",
+    "No_Data_Matching": "No data matching",
+    "No_Data_Available": "No data available!",
+    "Username_Is_Required": "Username is required!",
+    "Password_Is_Required": "Password is required!",
+    "Name_Is_Required": "Name is required!",
+    "Not_A_Valid_Email": "Not a valid email!",
+    "Additional_Information": "Additional information"
+  }
 }

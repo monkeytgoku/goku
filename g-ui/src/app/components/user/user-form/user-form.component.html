@@ -1,168 +1,179 @@
 <div class="user-form-wrapper">
   <form [formGroup]="userFg" class="user-form">
-    <mat-form-field [floatLabel]="'always'">
-      <mat-label>Username</mat-label>
-      <input
-        #username
-        matInput
-        formControlName="username"
-        maxlength="12"
-        autocomplete="off"
-        required
-      />
-      <button mat-button *ngIf="username.value" matSuffix mat-icon-button aria-label="Clear" (click)="username.value=''">
-        <mat-icon>close</mat-icon>
-      </button>
-      <mat-hint [align]="'end'">{{ username.value?.length || 0 }}/12</mat-hint>
-      <mat-error *ngIf="userFg.controls.username.invalid"
-        >Username is required!</mat-error
-      >
-    </mat-form-field>
+    <div class="g-row">
+      <div class="g-col-1-2">
+        <mat-form-field [floatLabel]="'always'">
+          <mat-label>{{ 'USER.Username' | translate }}</mat-label>
+          <input
+            #username
+            matInput
+            formControlName="username"
+            maxlength="12"
+            autocomplete="off"
+            required
+          />
+          <button mat-button *ngIf="username.value" matSuffix mat-icon-button aria-label="Clear" (click)="username.value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-hint [align]="'end'">{{ username.value?.length || 0 }}/12</mat-hint>
+          <mat-error *ngIf="userFg.controls.username.invalid"
+            >{{ 'USER.Username_Is_Required' | translate }}</mat-error
+          >
+        </mat-form-field>
 
-    <mat-form-field [floatLabel]="'always'">
-      <mat-label>Password</mat-label>
-      <input
-        #password
-        matInput
-        formControlName="password"
-        autocomplete="off"
-        [type]="hidePassword ? 'password' : 'text'"
-        required
-      />
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="hidePassword = !hidePassword"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hidePassword"
-      >
-        <mat-icon>{{
-          hidePassword ? "visibility_off" : "visibility"
-        }}</mat-icon>
-      </button>
-      <mat-error *ngIf="userFg.controls.password.invalid"
-        >Password is required!</mat-error
-      >
-    </mat-form-field>
+        <mat-form-field [floatLabel]="'always'">
+          <mat-label>{{ 'USER.Password' | translate }}</mat-label>
+          <input
+            #password
+            matInput
+            formControlName="password"
+            autocomplete="off"
+            [type]="hidePassword ? 'password' : 'text'"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidePassword"
+          >
+            <mat-icon>{{
+              hidePassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="userFg.controls.password.invalid"
+            >{{ 'USER.Password_Is_Required' | translate }}</mat-error
+          >
+        </mat-form-field>
 
-    <mat-form-field [floatLabel]="'always'">
-      <mat-label>Name</mat-label>
-      <input
-        #name
-        matInput
-        formControlName="name"
-        maxlength="50"
-        autocomplete="off"
-        required
-      />
-      <button mat-button *ngIf="name.value" matSuffix mat-icon-button aria-label="Clear" (click)="name.value='';">
-        <mat-icon>close</mat-icon>
-      </button>
-      <mat-error *ngIf="userFg.controls.name.invalid"
-        >Name is required!</mat-error
-      >
-    </mat-form-field>
+        <mat-form-field [floatLabel]="'always'">
+          <mat-label>{{ 'USER.Name' | translate }}</mat-label>
+          <input
+            #name
+            matInput
+            formControlName="name"
+            maxlength="50"
+            autocomplete="off"
+            required
+          />
+          <button mat-button *ngIf="name.value" matSuffix mat-icon-button aria-label="Clear" (click)="name.value='';">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-error *ngIf="userFg.controls.name.invalid"
+            >{{ 'USER.Name_Is_Required' | translate }}</mat-error
+          >
+        </mat-form-field>
 
-    <mat-form-field [floatLabel]="'always'">
-      <mat-label>Email</mat-label>
-      <input
-        #email
-        matInput
-        placeholder="pat@example.com"
-        formControlName="email"
-        autocomplete="off"
-        required
-      />
-      <button mat-button *ngIf="email.value" matSuffix mat-icon-button aria-label="Clear" (click)="email.value=''">
-        <mat-icon>close</mat-icon>
-      </button>
-      <mat-error *ngIf="userFg.controls.email.invalid"
-        >Not a valid email</mat-error
-      >
-    </mat-form-field>
-
-    <mat-form-field [floatLabel]="'always'">
-      <mat-label>Roles</mat-label>
-      <mat-select formControlName="roles" multiple>
-        <mat-option *ngFor="let role of roles" [value]="role">
-          {{ role }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <div class="g-form-field">
-      <label class="g-form-field__label">Active</label>
-      <mat-radio-group formControlName="isActive">
-        <mat-radio-button [value]="true" selected color="primary">Yes</mat-radio-button>
-        <mat-radio-button [value]="false" color="primary">No</mat-radio-button>
-      </mat-radio-group>
+        <mat-form-field [floatLabel]="'always'">
+          <mat-label>{{ 'USER.Email' | translate }}</mat-label>
+          <input
+            #email
+            matInput
+            placeholder="pat@example.com"
+            formControlName="email"
+            autocomplete="off"
+            required
+          />
+          <button mat-button *ngIf="email.value" matSuffix mat-icon-button aria-label="Clear" (click)="email.value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-error *ngIf="userFg.controls.email.invalid"
+            >{{ 'USER.Not_A_Valid_Email'  | translate }}</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="g-col-1-2">
+        <div class="g-form-field">
+          <label class="g-form-field__label">{{ 'USER.Avatar' | translate }}</label>
+          <app-upload-file></app-upload-file>
+        </div>
+      </div>
     </div>
 
-    <mat-expansion-panel class="user-form__more-info">
-      <mat-expansion-panel-header>
-        <mat-panel-title>Additional information</mat-panel-title>
-        <mat-panel-description>
-          <!-- <mat-icon>info</mat-icon> -->
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <div class="g-form-field">
-        <label class="g-form-field__label">Gender</label>
-        <mat-radio-group formControlName="gender">
-          <mat-radio-button value="male" color="primary">Male</mat-radio-button>
-          <mat-radio-button value="female" color="primary">Female</mat-radio-button>
-        </mat-radio-group>
+    <div class="g-row">
+      <div class="g-col-1-2">
+        <div class="g-form-field">
+          <label class="g-form-field__label">{{ 'USER.Gender' | translate }}</label>
+          <mat-radio-group formControlName="gender">
+            <mat-radio-button value="male" color="primary">{{ 'USER.Male' | translate }}</mat-radio-button>
+            <mat-radio-button value="female" color="primary">{{ 'USER.Female' | translate }}</mat-radio-button>
+          </mat-radio-group>
+        </div>
       </div>
-
-      <mat-form-field [floatLabel]="'always'">
-        <mat-label>Phone</mat-label>
-        <input
-          #phone
-          matInput
-          formControlName="phone"
-          autocomplete="off"
-        />
-        <button mat-button *ngIf="phone.value" matSuffix mat-icon-button aria-label="Clear" (click)="phone.value=''">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
-
-      <mat-form-field [floatLabel]="'always'">
-        <mat-label>Address</mat-label>
-        <input
-          #address
-          matInput
-          formControlName="address"
-          autocomplete="off"
-        />
-        <button mat-button *ngIf="address.value" matSuffix mat-icon-button aria-label="Clear" (click)="address.value=''">
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
-
-      <mat-form-field [floatLabel]="'always'">
-        <mat-label>Birthday</mat-label>
-        <input
-          #birthday
-          matInput
-          formControlName="birthday"
-          [matDatepicker]="datepicker"
-        />
-        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-        <mat-datepicker #datepicker>
-          <mat-datepicker-actions>
-            <button type="button" mat-button matDatepickerCancel>Cancel</button>
-            <button type="button" mat-raised-button color="primary" matDatepickerApply>Apply</button>
-          </mat-datepicker-actions>
-        </mat-datepicker>
-      </mat-form-field>
-
-      <div class="g-form-field">
-        <label class="g-form-field__label">Avatar</label>
-        <app-upload-file></app-upload-file>
+      <div class="g-col-1-2">
+        <mat-form-field [floatLabel]="'always'">
+          <mat-label>{{ 'USER.Birthday' | translate }}</mat-label>
+          <input
+            #birthday
+            matInput
+            formControlName="birthday"
+            [matDatepicker]="datepicker"
+          />
+          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker>
+            <mat-datepicker-actions>
+              <button type="button" mat-button matDatepickerCancel>{{ 'USER.Cancel' | translate }}</button>
+              <button type="button" mat-raised-button color="primary" matDatepickerApply>{{ 'USER.Apply' | translate }}</button>
+            </mat-datepicker-actions>
+          </mat-datepicker>
+        </mat-form-field>
       </div>
-    </mat-expansion-panel>
+    </div>
 
-    <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+    <div class="g-row">
+      <div class="g-col-1-2">
+        <mat-form-field [floatLabel]="'always'">
+          <mat-label>{{ 'USER.Phone' | translate }}</mat-label>
+          <input
+            #phone
+            matInput
+            formControlName="phone"
+            autocomplete="off"
+          />
+          <button mat-button *ngIf="phone.value" matSuffix mat-icon-button aria-label="Clear" (click)="phone.value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="g-col-1-2">
+        <mat-form-field [floatLabel]="'always'">
+          <mat-label>{{ 'USER.Address' | translate }}</mat-label>
+          <input
+            #address
+            matInput
+            formControlName="address"
+            autocomplete="off"
+          />
+          <button mat-button *ngIf="address.value" matSuffix mat-icon-button aria-label="Clear" (click)="address.value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="g-row">
+      <div class="g-col-1-2">
+        <mat-form-field [floatLabel]="'always'">
+          <mat-label>{{ 'USER.Roles' | translate }}</mat-label>
+          <mat-select formControlName="roles" multiple>
+            <mat-option *ngFor="let role of roles" [value]="role">
+              {{ role }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="g-col-1-2">
+        <div class="g-form-field">
+          <label class="g-form-field__label">{{ 'USER.Active'| translate }}</label>
+          <mat-radio-group formControlName="isActive">
+            <mat-radio-button [value]="true" selected color="primary">{{ 'USER.Yes' | translate }}</mat-radio-button>
+            <mat-radio-button [value]="false" color="primary">{{ 'USER.No' | translate }}</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" mat-raised-button color="primary" (click)="onSubmit()">{{ 'USER.Submit' | translate }}</button>
   </form>
 </div>

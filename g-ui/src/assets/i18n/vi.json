@@ -1,3 +1,41 @@
 {
-  "Home": "Trang Chủ"
+  "HEADER": {
+    "Home": "Trang Chủ",
+    "User": "Người dùng"
+  },
+  "FOOTER": {
+    "Copy_Right": "© 2021 Monkey T. Goku. All rights reserved."
+  },
+  "UPLOAD_FILE": {
+    "Upload": "Tải lên"
+  },
+  "USER": {
+    "Add": "Thêm",
+    "Search": "Tìm kiếm",
+    "Username": "Tên đăng nhập",
+    "Password": "Mật khẩu",
+    "Name": "Tên",
+    "Email": "Email",
+    "Roles": "Quyền",
+    "Active": "Kích hoạt",
+    "Yes": "Có",
+    "No": "Không",
+    "Gender": "Giới tính",
+    "Male": "Nam",
+    "Female": "Nữ",
+    "Phone": "Số điện thoại",
+    "Address": "Địa chỉ",
+    "Birthday": "Ngày sinh",
+    "Cancel": "Hủy",
+    "Apply": "Đồng ý",
+    "Avatar": "Ảnh đại diện",
+    "Submit": "Gửi",
+    "No_Data_Matching": "Không tìm thấy dữ liệu với từ khóa",
+    "No_Data_Available": "Không có dữ liệu!",
+    "Username_Is_Required": "Tên đăng nhập không được trống!",
+    "Password_Is_Required": "Mật khẩu không được trống!",
+    "Name_Is_Required": "Tên không được trống!",
+    "Not_A_Valid_Email": "Email không hợp lệ!",
+    "Additional_Information": "Thông tin bổ sung"
+  }
 }
